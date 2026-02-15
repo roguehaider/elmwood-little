@@ -642,6 +642,7 @@ h1, h2, h3, h4 {
 .main-display-area {
   order: -1; /* Negative order places it before all default order:0 items */
   width: 100%;
+  aspect-ratio: 1 / 1;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
