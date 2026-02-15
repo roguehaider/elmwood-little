@@ -1,0 +1,1094 @@
+/* 
+  Elmwood Little - Premium Baby Store Catalogue
+  Design System & Styles
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Palette: Warm Pastel & Premium Neutral Tones */
+  --color-bg: #FDFBF8;         /* Warm Cream */
+  --color-card-bg: #FFFFFF;    /* Pure White */
+  --color-text-primary: #3D3D3D; /* Soft Charcoal */
+  --color-text-secondary: #757575; /* Warm Grey */
+  --color-accent-sage: #A8B5A3; /* Muted Sage */
+  --color-accent-blush: #EBCBCB; /* Soft Blush */
+  --color-accent-gold: #Cfb995; /* Muted Gold for price/premium touches */
+  --color-border: #F0EFEA;
+  
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.08);
+  
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --radius-sm: 8px;
+  
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+  
+  --spacing-container: 2rem;
+  --spacing-section: 4rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text-center { text-align: center; }
+.text-uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* Layout Containers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-container);
+}
+
+/* Header & Hero */
+.site-header {
+  padding: 0.75rem 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.brand-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.brand-logo-link {
+  display: inline-block;
+}
+
+.brand-logo {
+  max-height: 260px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Floating logo keyframes */
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.hero {
+  padding: 2rem 0 2.5rem;
+  background: linear-gradient(to bottom, #FDFBF8 0%, #F7F5F0 100%);
+  text-align: center;
+  margin-bottom: var(--spacing-section);
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  font-family: var(--font-heading);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.hero-sub {
+  font-size: 0.9rem;
+  color: var(--color-accent-sage);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Categories */
+.category-section {
+  margin-bottom: var(--spacing-section);
+}
+
+.category-header {
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.category-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.category-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent-sage);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+/* Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+}
+
+/* Product Card */
+.product-card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-image-wrapper {
+  position: relative;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  background-color: #F9F9F9;
+  overflow: hidden;
+}
+
+.card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.product-variants {
+  font-size: 0.8rem;
+  color: var(--color-accent-sage);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  background: #F4F6F4;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  align-self: center;
+}
+
+.product-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.product-price {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.btn-details {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--color-text-primary);
+  border-radius: 50px;
+  color: var(--color-text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.btn-details:hover {
+  background-color: var(--color-text-primary);
+  color: white;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #F2F0EB;
+  padding: 4rem 0 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo-link {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.footer-logo {
+  max-height: 140px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.footer-desc {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  color: var(--color-text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid rgba(0,0,0,0.05);
+  padding-top: 2rem;
+}
+
+/* Product Detail Page Styles */
+.breadcrumb {
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.breadcrumb a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+  color: var(--color-accent-sage);
+}
+
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: var(--spacing-section);
+}
+
+/* Gallery */
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: #F9F9F9;
+  aspect-ratio: 1/1;
+  position: relative;
+}
+
+.main-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+/* Show the first image by default */
+.main-image img:first-child {
+  opacity: 1;
+  position: relative; /* Keep relative to maintain container height */
+}
+
+/* Hover logic:
+   When hovering a thumbnail, we want to target the corresponding image in .main-image.
+   Since we can't select "previous sibling's child" with CSS easily without reordering HTML,
+   we will use a different approach for Pure CSS gallery:
+   
+   We will move the main display images INSIDE the thumbnail container or use an adjacent sibling hack.
+   However, for a cleaner semantic HTML structure, we can use the :has() selector (modern) 
+   or a classic radio-button hack. 
+   
+   Given "No JS" and "No complex hacks" preference, and to keep it simple:
+   We will restructure the HTML slightly to allow CSS sibling selection.
+*/
+
+/* REVISED CSS GALLERY APPROACH (No JS) */
+.gallery-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.gallery-display {
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: #F9F9F9;
+}
+
+.gallery-display img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+/* Default state: First image visible */
+.gallery-display img:first-child {
+  opacity: 1;
+  z-index: 2;
+}
+
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Up to 6 images */
+  gap: 0.5rem;
+}
+
+.thumb-item {
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: #F9F9F9;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.thumb-item:hover {
+  border-color: var(--color-accent-sage);
+}
+
+.thumb-item:hover img {
+  opacity: 1;
+}
+
+/* The Magic: Hovering a thumbnail changes the main image opacity */
+/* Note: This requires the thumbnails to be capable of affecting the display.
+   Since we can't pass hover states UP the DOM, we need a structure where 
+   thumbnails are siblings or parents of the display.
+   
+   Let's use a Grid layout where we can visually separate them but keep them as siblings in DOM.
+*/
+
+.css-gallery {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1.5rem;
+}
+
+/* Hidden radio buttons for click interaction (optional) or just hover areas */
+.gallery-full-image {
+  grid-row: 1;
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+
+.gallery-full-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Let clicks pass through */
+}
+
+/* Default first image */
+.gallery-full-image img:first-child {
+  opacity: 1;
+}
+
+.gallery-nav {
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+
+.gallery-nav-item {
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.gallery-nav-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-nav-item:hover {
+  opacity: 1;
+  border-color: var(--color-accent-sage);
+}
+
+/* 
+   Since we cannot select the 'previous sibling' (.gallery-full-image) from the 'next sibling' (.gallery-nav)
+   on hover in CSS without :has() support (which is good but maybe not 100% everywhere yet, though widely supported),
+   
+   The most robust NO-JS way that works everywhere is:
+   Put the thumbnails BEFORE the main image in HTML, and use Flexbox 'order' to visually swap them.
+*/
+
+.interactive-gallery {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-thumbnails {
+  display: flex; /* or grid */
+  gap: 0.5rem;
+  order: 2; /* Visually below */
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.gallery-main {
+  order: 1; /* Visually above */
+  width: 100%;
+  aspect-ratio: 1/1;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  z-index: 1;
+}
+
+.gallery-main img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Default: First main image is visible */
+.gallery-main img:first-child {
+  opacity: 1;
+  z-index: 2;
+}
+
+.thumb-trigger {
+  width: 70px; /* Thumbnail size */
+  height: 70px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 0.6;
+  transition: all 0.2s;
+}
+
+.thumb-trigger img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-trigger:hover {
+  opacity: 1;
+  border-color: var(--color-accent-sage);
+}
+
+/* 
+   CSS HOVER MAGIC:
+   HTML Structure must be:
+   <div class="gallery-container-css">
+      <div class="thumb-1"></div>
+      <div class="thumb-2"></div>
+      ...
+      <div class="main-display">
+         <img 1>
+         <img 2>
+         ...
+      </div>
+   </div>
+   
+   Then we use general sibling selector (~).
+*/
+
+/* Thumbnail wrapper to group them visually below the main image */
+.css-gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Main Display Area - appears first visually via order */
+.main-display-area {
+  order: -1; /* Negative order places it before all default order:0 items */
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: #F9F9F9;
+  margin-bottom: 0.5rem;
+}
+
+.main-display-area img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #F9F9F9;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Default State - first image visible */
+.main-display-area img:first-child {
+  opacity: 1;
+}
+
+/* Thumbnails - appear after main display due to default order:0 */
+.gallery-thumb {
+  width: calc((100% - 3.75rem) / 6); /* 6 items, 5 gaps of 0.75rem */
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  opacity: 0.6;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  background: #F9F9F9;
+  height: 80px;
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #F9F9F9;
+}
+
+.gallery-thumb:hover {
+  opacity: 1;
+  border-color: var(--color-accent-sage);
+}
+
+/* Hover Logic - Thumbnails affect main display via general sibling selector */
+.gallery-thumb:nth-of-type(1):hover ~ .main-display-area img:nth-of-type(1) { opacity: 1; z-index: 5; }
+.gallery-thumb:nth-of-type(2):hover ~ .main-display-area img:nth-of-type(2) { opacity: 1; z-index: 5; }
+.gallery-thumb:nth-of-type(3):hover ~ .main-display-area img:nth-of-type(3) { opacity: 1; z-index: 5; }
+.gallery-thumb:nth-of-type(4):hover ~ .main-display-area img:nth-of-type(4) { opacity: 1; z-index: 5; }
+.gallery-thumb:nth-of-type(5):hover ~ .main-display-area img:nth-of-type(5) { opacity: 1; z-index: 5; }
+.gallery-thumb:nth-of-type(6):hover ~ .main-display-area img:nth-of-type(6) { opacity: 1; z-index: 5; }
+
+/* 4-image gallery variant */
+.css-gallery-4 .gallery-thumb {
+  width: calc((100% - 2.25rem) / 4); /* 4 items, 3 gaps of 0.75rem */
+}
+
+
+/* Detail Info */
+.detail-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.brand-label {
+  display: block;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-sage);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.price-detail {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.price-original {
+  display: none; /* Only original price shown on detail pages – no sale/discount price */
+}
+
+.price-block .price-detail {
+  margin-bottom: 0;
+}
+
+.variant-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #F9F9F9;
+  border-radius: var(--radius-md);
+}
+
+.variant-title {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.variant-options {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.variant-group-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent-sage);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.variant-group-label:first-of-type {
+  margin-top: 0;
+}
+
+.variant-btn {
+  padding: 0.75rem 1.25rem;
+  background: #F4F6F4;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.variant-btn.active {
+  border-color: var(--color-accent-sage);
+  background: var(--color-accent-sage);
+  color: white;
+}
+
+.detail-section-title {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.description-section {
+  margin-bottom: 2rem;
+}
+
+.description-section p {
+  margin-bottom: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.features-list {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.features-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.features-list li::before {
+  content: '•';
+  color: var(--color-accent-sage);
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.specs-table td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.specs-table td:first-child {
+  font-weight: 600;
+  width: 30%;
+  color: var(--color-text-primary);
+}
+
+.specs-table td:last-child {
+  color: var(--color-text-secondary);
+}
+
+.btn-enquire {
+  display: none; /* Hidden globally – no Enquire Now / View In Store on detail pages */
+}
+
+.btn-store {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--color-accent-sage);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn-store:hover {
+  background-color: #8FA389;
+  transform: translateY(-2px);
+}
+
+/* Premium product detail layout (Solvi-style / Portable Warmer page) */
+.product-detail-premium {
+  align-items: start;
+}
+
+.detail-info-column {
+  position: sticky;
+  top: 2rem;
+}
+
+.detail-info-card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+}
+
+.product-title-premium {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-highlights {
+  margin: 1.5rem 0;
+}
+
+.highlights-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.highlights-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-primary);
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.highlights-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-sage);
+}
+
+.variant-display-static .variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.variant-pill {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: #F4F6F4;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.trust-note {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 1.5rem 0 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Full-width content block below product (description, features, specs, lifestyle) */
+.detail-content-block {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.content-block-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 1.25rem;
+}
+
+.detail-content-block .description-section p {
+  margin-bottom: 1rem;
+}
+
+.detail-content-block .description-section,
+.detail-content-block .features-section,
+.detail-content-block .specs-section {
+  margin-bottom: 2.5rem;
+}
+
+/* What's Included Section */
+.included-section {
+  margin-bottom: 2.5rem;
+}
+
+.included-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.included-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #F9F9F9;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.included-qty {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-accent-sage);
+  white-space: nowrap;
+}
+
+.included-item {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+@media (max-width: 600px) {
+  .included-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.lifestyle-section {
+  margin-top: 2rem;
+}
+
+.lifestyle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.lifestyle-placeholder {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #F9F9F9;
+  box-shadow: var(--shadow-soft);
+}
+
+.lifestyle-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detail-info-column {
+    position: static;
+  }
+
+  .lifestyle-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --spacing-container: 1.5rem;
+    --spacing-section: 3rem;
+  }
+  
+  .brand-name { font-size: 2rem; }
+  .brand-logo { max-height: 180px; }
+  .hero-tagline { font-size: 1.25rem; }
+  .category-title { font-size: 2rem; }
+  
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero { padding: 4rem 0; }
+}
