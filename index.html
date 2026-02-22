@@ -24,8 +24,68 @@
         </div>
     </section>
 
+    <!-- Our Trusted Brands – full-width marquee -->
+    <section class="brands-section" id="brands">
+        <div class="container">
+            <div class="brands-header">
+                <h2 class="brands-title">Our Trusted Brands</h2>
+                <p class="brands-intro">We proudly stock a carefully curated selection of trusted baby and family brands, chosen for their quality, safety, and everyday practicality.</p>
+            </div>
+        </div>
+        <div class="brand-marquee-wrap">
+            <div class="brand-marquee-track">
+                <div class="brand-strip">
+                    <div class="brand-card"><span class="brand-name-text">Dr. Brown's</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Boon</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Vaundra</span></div>
+                    <div class="brand-card"><span class="brand-name-text">The First Years</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Frida Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Johnson's Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Aveeno Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">CeraVe</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Cetaphil</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Sublaga</span></div>
+                    <div class="brand-card"><span class="brand-name-text">WXA</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Qunlions Life</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Briggs / DMI</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Safety 1st</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Oral-B</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Infantino</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Cosco</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Pamo Babe</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Comfy Cubs</span></div>
+                    <div class="brand-card"><span class="brand-name-text">ChooKaChoo</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Vicloon</span></div>
+                </div>
+                <div class="brand-strip" aria-hidden="true">
+                    <div class="brand-card"><span class="brand-name-text">Dr. Brown's</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Boon</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Vaundra</span></div>
+                    <div class="brand-card"><span class="brand-name-text">The First Years</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Frida Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Johnson's Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Aveeno Baby</span></div>
+                    <div class="brand-card"><span class="brand-name-text">CeraVe</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Cetaphil</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Sublaga</span></div>
+                    <div class="brand-card"><span class="brand-name-text">WXA</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Qunlions Life</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Briggs / DMI</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Safety 1st</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Oral-B</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Infantino</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Cosco</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Pamo Babe</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Comfy Cubs</span></div>
+                    <div class="brand-card"><span class="brand-name-text">ChooKaChoo</span></div>
+                    <div class="brand-card"><span class="brand-name-text">Vicloon</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="container">
-        
+
         <!-- Category: Feeding & Care -->
         <section class="category-section" id="feeding">
             <div class="category-header">
@@ -573,6 +633,29 @@
             <p class="copyright">&copy; 2026 Elmwood Little. All rights reserved.</p>
         </div>
     </footer>
+
+    <div class="scroll-down-overlay" id="scrollDownOverlay" aria-hidden="true">
+        <span class="scroll-down-text">See more below</span>
+        <img src="assets/downarrow.png" alt="" class="scroll-down-arrow">
+    </div>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById('scrollDownOverlay');
+        if (!overlay) return;
+        var threshold = 80;
+
+        function updateOverlay() {
+          var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - threshold;
+          overlay.classList.toggle('is-hidden', atBottom);
+          overlay.setAttribute('aria-hidden', atBottom);
+        }
+
+        window.addEventListener('scroll', updateOverlay, { passive: true });
+        window.addEventListener('resize', updateOverlay);
+        updateOverlay();
+      })();
+    </script>
 
 </body>
 </html>
