@@ -1068,6 +1068,170 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Our Trusted Brands – auto-moving marquee */
+.brands-section {
+  margin-bottom: var(--spacing-section);
+  padding-top: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+}
+
+.brands-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.brands-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.brands-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-accent-sage);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.brands-intro {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+.brand-marquee-wrap {
+  overflow: hidden;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.brand-marquee-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: brandMarquee 50s linear infinite;
+}
+
+.brand-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.brand-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  padding: 0 0.5rem;
+}
+
+.brand-strip:first-child {
+  padding-left: 1.5rem;
+}
+
+.brand-strip:last-child {
+  padding-right: 1.5rem;
+}
+
+.brand-card {
+  flex-shrink: 0;
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.brand-card:hover {
+  box-shadow: var(--shadow-hover);
+  background-color: #FAFAF9;
+}
+
+.brand-card .brand-name-text {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+@keyframes brandMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-title {
+    font-size: 2rem;
+  }
+
+  .brands-header {
+    margin-bottom: 2rem;
+  }
+
+  .brand-marquee-track {
+    animation-duration: 40s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-marquee-track {
+    animation: none;
+  }
+}
+
+/* Scroll-down overlay (bottom of page) */
+.scroll-down-overlay {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, var(--color-bg) 0%, var(--color-bg) 40%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  padding-bottom: 1rem;
+  pointer-events: none;
+  z-index: 100;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.scroll-down-overlay .scroll-down-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.scroll-down-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-down-overlay .scroll-down-arrow {
+  width: 36px;
+  height: auto;
+  opacity: 0.85;
+}
+
+.scroll-down-overlay.is-hidden .scroll-down-text {
+  opacity: 0;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   :root {
